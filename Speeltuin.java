@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Speeltuin {
 
@@ -12,10 +14,46 @@ public class Speeltuin {
 		harrysBezem.vlieg(40);
 		ronsBezem.vlieg(40);
 		hermionesBezem.vlieg(40);
+		
+		TovenaarsWinkel HagridsShop = new TovenaarsWinkel();
+		Bezem ronsNieuweBezem = HagridsShop.verkoopBezem();
+		HagridsShop.vegen(ronsNieuweBezem);
+		
 			
 	}
 }
 
+
+class TovenaarsWinkel {
+	List<Bezem> assortiment;
+	
+	TovenaarsWinkel(){
+		this.assortiment = new ArrayList<>();
+		this.assortiment.add(new Bezem("Nimbus 2000",180,1400));
+		this.assortiment.add(new Bezem("Nimbus 2000",180,1400));
+		this.assortiment.add(new Bezem("Nimbus 2001",180,1600));
+		this.assortiment.add(new Bezem("Nimbus 2001",180,1600));
+		this.assortiment.add(new Bezem("Firebolt Supreme ",230,2800));
+		this.assortiment.add(new Bezem("Firebolt Supreme ",230,2800));
+		this.assortiment.add(new Bezem("Firebolt Supreme ",230,2800));
+	}
+	
+	
+	
+	public Bezem verkoopBezem() {
+		Bezem deze = this.assortiment.get(0);
+		this.assortiment.remove(deze);
+		return deze ;
+	}
+	
+	
+	static void vegen(Bezem bezem) {
+		System.out.println("Je gaat toch niet meet je " + bezem.getType() + " vegen!");
+		
+	}
+	
+	
+}
 
 
 class Bezem {
@@ -39,6 +77,11 @@ class Bezem {
 		
 	}
 	
-	
+	public String getType() {
+		return this.type;
+		
+	}
 }
+
+
 	
